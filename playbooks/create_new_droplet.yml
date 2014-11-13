@@ -1,0 +1,23 @@
+---
+# file: playbooks/create_new_droplet.yml
+
+- name: "Create a new droplet"
+  hosts: 127.0.0.1
+  vars_files:
+    - ../config/secrets.yml
+
+  vars_prompt:
+    droplet_name: "Enter a droplet name"
+
+  tasks:
+    - digital_ocean: >
+        state=present
+        command=droplet
+        name={{ droplet_name }}
+        client_id={{ digital_ocean_client_id }}
+        api_key={{ digital_ocean_api_key }}
+        ssh_key_ids={{ digital_ocean_ssh_key_ids }}
+        size_id=66
+        region_id=8
+        image_id=6918990
+        wait_timeout=500

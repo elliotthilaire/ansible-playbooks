@@ -1,0 +1,41 @@
+---
+# file: roles/common/tasks/main.yml
+
+## Updates, Yay!
+- name: Update APT package cache
+  apt: update_cache=yes
+
+- name: Run apt-get upgrade
+  apt: upgrade=safe
+
+
+## Security 
+
+### SSH brute force protection
+- name: Install fail2ban
+  apt: pkg=fail2ban state=installed
+
+### Automatic security updates
+- name: Install unattended-upgrades
+  apt: pkg=unattended-upgrades state=present
+
+- name: Enable unattended-upgrades
+  lineinfile: dest=/etc/apt/apt.conf.d/10periodic regexp="^APT::Periodic::Unattended-Upgrade" line="APT::Periodic::Unattended-Upgrade \"1\";" state=present
+
+### Rootkit detection (untested)
+#- name: Install rootkit detection
+#  apt: pkg=chkrootkit state=present
+#- name: Install rootkit detection
+#  apt: pkg=rkhunter state=present 
+
+### Firewall (untested)
+#- name: Install UFW
+#  apt: pkg=ufw state=present
+#- name: Firewall allow ssh (ufw enable has to be run manually)
+#  command: ufw allow ssh
+#- name: Firewall allow http (ufw enable has to be run manually)
+#  command: ufw allow http
+#- name: Firewall allow https (ufw enable has to be run manually)
+#  command: ufw allow https
+#- name: UFW limit ssh
+#  command: ufw limit ssh/tcp

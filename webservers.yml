@@ -1,0 +1,11 @@
+---
+# file: webservers.yml
+
+- name: "webservers"
+  hosts: webservers
+
+  roles:
+    - { role: common, sudo: yes}
+
+  tasks:
+    - include: tasks/my_ssh_keys_task.yml

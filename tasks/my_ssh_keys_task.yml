@@ -1,0 +1,16 @@
+---
+# file: config/my_ssh_keys_task.yml
+
+- include_vars: secrets.yml
+
+- name: add uja key
+  authorized_key: user={{ sudo_user }} state=present key="ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQBY8BIM2J2BQFUNotUjQVb+B2RB7DI7kz0lBQRYU+ZpQv9jUzKiSXPsseEvnFvZDnYi+Vrj9f0+bVoWZGYlRV1I5c8GM50gavqDpuaKqESUT1qdZzDG2HEQAUWmMYmuZX2wN/CgXNJTfwHGgjkQMxDU81BCprIpxRpp/1xZ3Hop0KvUyGolTYFW+TJpEVFwCIh80XNYVkPxVOWgMj4t9SRRBFFeAheznYuc2d9Wbz0cG03GTUWd1dbBV2+QCREMUd+rUYQdbpjYTk7cAkckYE0OT8nJHrAH+jYt3/Yo/P2EaW2SHcfnHKQNXUbsmwZMfR6rTkuPzHnh9a99gT/GXnYL elliott@uja 2013-06-07"
+
+- name: add seberus key
+  authorized_key: user={{ sudo_user }} state=present key="ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAlT2hZPip2jIqmxg94ba9E1ZBzHyfaw35sYDXfAft9O+33g5dhPiAaCWiC6ol0Iuo0z3wAbP5AjtFx6DvvnoPueATKHdXzyzVMPtSPssvfflZiFlLuwUdNieAFBC4PjBBJJ0DxlqD5aVL15Sq1yw7tXBWSAw2cnU2U3dZmp3FXdnefazzDvujb5WzXSQ2xTKO/Qwo4UmORdED+81ALvQXD+ONocEbQlSLXea2z5SGyjCmtP2B2FCKcN+683+2CObjyhX74XEmGgOBd0AcS7BFjOt16xDTJkohCVhSunzWkIaG2ULcSLx3L7jh0YOSumuXBeNIUGey/SZKumb2TyhfLw== elliott@seberus 2012-08-04"
+
+- name: add kallisti key
+  authorized_key: user={{ sudo_user }} state=present key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDedwLFdVHZULU0WaDBC9vaU3AnrUspCh9TfcScCNM798SgSl8Ib6P3kITTey8Ea48IVqZiI8eF0JVHHk8dHlaVM0bzAbH8FJntyMThflNZSrP5yBEptlqxp+nxBXTS15AaFzEyGI3ChRVrP0nfTLNiyECp4LzWU/zZbpk0Q3ebNKN+fdTfhNmzyKSuEum3w+0Nb7ysphPsvymvAKXKnzQON2cbF5VNYR/WQRe3t2DLRDQghO2RZ1tPR5SnB9Kc/RZEQHYz3fonARRyfHO+xTQmKgme7047jQnWhekLhg1XcN8lXyTwN/G6ASmzjbkEaOTA6eFiayZ6hrR9bwjOjctx elliott@kallisti 2013-08-03"
+
+- name: add usb key
+  authorized_key: user={{ sudo_user }} state=present key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8ELedcse5fR+ngUVzWSbmLWzNWH+VjoLuLpKxPIbbEDZDb2qd0PZkhTs1T2O6r3DWTHGQztwUMDxPswuoZmwLUUOmyZjmaKWyVlaOKVX+daG4VMXx5/oC2KUpEN53U6q+RHSSPnweIXdVwLIzKNFJMFiiqSPImCgDhP/NW3gmMrfac19JH6Ei1ucLvMFHRYtSp7/K+yN+l0MB82tXicve3N40zts+DF9gJ1N0aY3ZVkx6oPYSC4K5jLOHiI00lSn3LMt9wmMV/l5qp92jXl7LHIO65q9PPbDGCvOduO3bHNRDDMP1qDTBhlgPYEZzPlrrGjvKG6LE48/pGZuwiw2J usb_key 2013_02_25"
